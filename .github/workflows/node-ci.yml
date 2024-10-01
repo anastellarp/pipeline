@@ -10,8 +10,8 @@ jobs:
    runs-on: ubunto-lasted
 
    steps:
-    - name: Sucesso
-    uses: echo "Deployying..."
+    - name: Checkout
+    uses: actions/checkout@v4
 
      - name: Setup Node.js
     uses: actions/setup-node@v4
@@ -24,3 +24,11 @@ jobs:
     - name: Run Tests
     run: npm test
 
+   cd:
+    name: Continuous Deployment
+    runs-on: ubuntu-latest
+    needs: ci
+
+    steps:
+      - name: Sucesso
+        uses: echo "Deploying..."
